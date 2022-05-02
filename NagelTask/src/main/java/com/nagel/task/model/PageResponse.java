@@ -19,4 +19,5 @@ public class PageResponse {
     private Long totalCount;
     private URL nextUrl;
     private URL prevUrl;
+    private Boolean allowEdit = false;
 }

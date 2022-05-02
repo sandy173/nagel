@@ -5,6 +5,7 @@ import com.nagel.task.model.City;
 import com.nagel.task.model.CityCsvData;
 import com.nagel.task.model.PageResponse;
 import com.nagel.task.repository.CityRepository;
+import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
@@ -14,6 +15,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CityService implements ICityService{
@@ -52,6 +54,12 @@ public class CityService implements ICityService{
         List<City> cities = cityRepository.citiesByRange(offSet, end);
         double totalPages = Math.ceil((double) size / 10);
 
+        PageResponse pageResponse = formatResponse(size, cities, totalPages, pageNum);
+        return pageResponse;
+    }
+
+    private PageResponse formatResponse(final Long size, final List<City> cities, final double totalPages, final Long pageNum) {
+
         PageResponse pageResponse = new PageResponse();
         pageResponse.setTotalCount(size);
         pageResponse.getCityList().addAll(cities);
@@ -78,7 +86,33 @@ public class CityService implements ICityService{
                 e.printStackTrace();
             }
         }
+        return pageResponse;
+    }
 
+    public Long updateCity(final City city) {
+        Optional<City> cityDatabse = cityRepository.findById(city.getId());
+
+        if(cityDatabse.isPresent()) {
+            if (city.getName() != null && !city.getName().equals(" ") && !city.getName().equals(cityDatabse.get().getName())) {
+                cityDatabse.get().setName(city.getName());
+            }
+            if (city.getPhoto() != null && !city.getPhoto().equals(" ") && !city.getPhoto().equals(cityDatabse.get().getPhoto())) {
+                cityDatabse.get().setPhoto(city.getPhoto());
+            }
+        }
+
+        cityRepository.save(cityDatabse.get());
+        return cityDatabse.get().getId();
+    }
+
+
+    public PageResponse getByCityName(final String name) {
+        PageResponse pageResponse = new PageResponse();
+        List<City> cities = new ArrayList<>();
+        if (name != null) {
+            cities = cityRepository.retrieveCity(name);
+        }
+        pageResponse.getCityList().addAll(cities);
         return pageResponse;
     }
 }
