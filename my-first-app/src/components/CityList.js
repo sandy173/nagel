@@ -51,6 +51,7 @@ const CityList = () => {
             )
             .catch((e) => {
                 console.log(e);
+                onAlertMessage(e.message + ". Check the user credentials");
                 }
             );
     }
