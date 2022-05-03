@@ -78,6 +78,28 @@
 (DUE TO LACK OF TIME, I COULD NOT CREATE A LOGIN AND REGISTRATION PAGE. HOWEVER, THE PURPOSE OF ROLE BASED ACTION CAN BE SIMULATED WITH THE HELP OF THE FILE constants.js BY JUST CHANGING THE USERNAME AND PASSWORD TO THE DESIRED ONE.)
 
     
+## Screen shots
+
+![image](https://user-images.githubusercontent.com/60135402/166429942-15c84b6c-1630-4c4d-b21c-87cd3e3f51cd.png)
+
+# Search
+
+![image](https://user-images.githubusercontent.com/60135402/166430049-f0d72d99-30fe-4b9a-97f1-0335a69c4ab0.png)
+
+
+# Edit City Name
+
+![image](https://user-images.githubusercontent.com/60135402/166430205-b115f691-9572-4c63-bc79-8ea081264894.png)
+
+
+# Error Message
+
+  ![image](https://user-images.githubusercontent.com/60135402/166430470-faffd16c-029a-47a0-96d0-e0006ac6936a.png)
+  ![image](https://user-images.githubusercontent.com/60135402/166430664-91c6055c-ae04-421d-aa3a-e6c4643f2f32.png)
+
+# Error Message with Wrong user Credentials
+![Uploading image.png…]()
+
 
 
 
