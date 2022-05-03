@@ -40,6 +40,7 @@
                 CONSTRAINT users_pkey PRIMARY KEY (id)
               );
    8) Insert data in role Table 
+        
         INSERT INTO "role" (id, "name") VALUES(1, 'ROLE_USER');
         INSERT INTO "role" (id, "name") VALUES(2, 'ROLE_ADMIN');
         INSERT INTO "role" (id, "name") VALUES(3, 'ROLE_ALLOW_EDIT');
@@ -64,7 +65,8 @@
     2) username : dev
       password : dev
       role : ROLE_USER
-  User name "devedit" will be able to see the action button for edit. The user name "dev" will not be able to see the button for edit in the table.
+      
+      User name "devedit" will be able to see the action button for edit. The user name "dev" will not be able to see the button for edit in the table.
   
   We can change the user from the constants.js file 
   export const properties = {
